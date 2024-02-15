@@ -242,7 +242,6 @@ GameObject:
   - component: {fileID: 221501420}
   - component: {fileID: 221501419}
   - component: {fileID: 221501418}
-  - component: {fileID: 221501424}
   m_Layer: 6
   m_Name: Player_trial
   m_TagString: Player
@@ -259,15 +258,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 221501417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea4ea62cb92dc04aa75e4e27437d995, type: 3}
+  m_Script: {fileID: 11500000, guid: 5802f9a5b72cce74891073f09086d180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
-  dodgeDistance: 9
+  speed: 10
+  dodgeDistance: 5
   dodgeSpeed: 0.1
-  smoothTime: 0.01
+  smoothTime: 0.05
   hoverHeight: 2
-  hoverForce: 100
+  hoverForce: 300
   bulletPrefab: {fileID: 2638358646463430993, guid: 3f73356387e873c4caff2d013d5853a7,
     type: 3}
   bulletSpeed: 20
@@ -384,19 +383,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &221501424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221501417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8219658b707f5704bbad0d15c7e54413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
 --- !u!1 &961508719
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223930300}
-  - component: {fileID: 1223930299}
+  - component: {fileID: 1223930301}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -749,20 +735,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1223930299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223930298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 246461915a1850e45a318695dac30a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6637075637092405887, guid: 976c2b31618a70d4aad8a18c9fb6a124,
-    type: 3}
 --- !u!4 &1223930300
 Transform:
   m_ObjectHideFlags: 0
@@ -778,6 +750,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223930301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223930298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e841418448c7fe04d91a371748d53d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6637075637092405887, guid: 976c2b31618a70d4aad8a18c9fb6a124,
+    type: 3}
 --- !u!1 &1378534092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,14 +1018,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1922870596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3232f1182e34e34eb3303f77cf1e653, type: 3}
+  m_Script: {fileID: 11500000, guid: 7737660d90231d7499ad3885f868f684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6637075637092405887, guid: 976c2b31618a70d4aad8a18c9fb6a124,
     type: 3}
   spawnRate: 1
-  bulletsPerGroup: 8
-  groupInterval: 0.52
+  bulletsPerGroup: 9
+  groupInterval: 0.5
   spreadAngle: 45
   pattern: 2
   pathPoints: []
@@ -1167,10 +1153,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1922870596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 816ddcb89f6b1604291642ba9235aaef, type: 3}
+  m_Script: {fileID: 11500000, guid: c78dc9ff396c14d41a2acfa46d8f4a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
+  navMeshAgent: {fileID: 1922870602}
   startWaitTime: 4
   timeToRotate: 2
   speedWalk: 6
@@ -1182,13 +1168,11 @@ MonoBehaviour:
     m_Bits: 64
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   meshResolution: 1
   edgeIteration: 4
   edgeDistance: 0.5
-  waypoints:
-  - {fileID: 1212826297}
-  - {fileID: 961508720}
+  waypoints: []
 --- !u!1 &2131604299
 GameObject:
   m_ObjectHideFlags: 0

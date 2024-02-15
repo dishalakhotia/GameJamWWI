@@ -115,9 +115,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6637075637092405887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c30e8bb6cc6cd9f479ed0be17f4fe33b, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd597bbc86f1bb4984882090f55d974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletLife: 3
+  bulletLife: 2
   damage: 1
   speed: 30

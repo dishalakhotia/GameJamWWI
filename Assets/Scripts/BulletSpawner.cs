@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class BulletSpawner : MonoBehaviour
     public float moveSpeed = 5f;
     public int bulletsPerShot = 3;
     public float successionInterval = 0.2f;
-
+    public Transform target;
+    public float bulletSpeed = 1f;
     void Start()
     {
         StartCoroutine(SpawnBulletss());
@@ -24,6 +26,14 @@ public class BulletSpawner : MonoBehaviour
     void Update()
     {
         MoveAlongPath();
+    }
+    void EnemyShoot()
+    {
+        GameObject bullet = ObjectPoolManager.Instance.GetBullet();
+       // bullet.transform.position = enemyGun.position; // Assuming you have a gun position
+        bullet.transform.rotation = Quaternion.LookRotation(target.position - transform.position);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.velocity = (target.position - transform.position).normalized * bulletSpeed; // Adjust target and bullet speed
     }
 
     void MoveAlongPath()
@@ -42,10 +52,12 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
+
     IEnumerator SpawnBulletss()
     {
         while (true)
         {
+
             switch (pattern)
             {
                 case 0: // Straight pattern

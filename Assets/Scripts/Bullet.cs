@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletLife = 5.0f; // Bullet life in seconds
+    public float bulletLife = 1.0f; // Bullet life in seconds
     public int damage = 1; // Damage the bullet does to the player
     public float speed= 30f;
     public delegate void BulletHitHandler(GameObject hitObject);
     public static event BulletHitHandler OnBulletHit;
+
+
     private void Start()
     {
-    
-        Destroy(gameObject, bulletLife); // Destroy the bullet after its life expire
+
+        Invoke("ReturnToPool", bulletLife); // Destroy the bullet after its life expire
     }
 
+    void ReturnToPool()
+    {
+        ObjectPoolManager.Instance.ReturnBullet(gameObject);
+    }
 
 
     void Update()
@@ -28,4 +34,5 @@ public class Bullet : MonoBehaviour
         OnBulletHit?.Invoke(other.gameObject);
         Destroy(gameObject); // Destroy the bullet on collision
     }
+
 }
