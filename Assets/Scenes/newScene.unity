@@ -1172,7 +1172,9 @@ MonoBehaviour:
   meshResolution: 1
   edgeIteration: 4
   edgeDistance: 0.5
-  waypoints: []
+  waypoints:
+  - {fileID: 1212826297}
+  - {fileID: 961508720}
 --- !u!1 &2131604299
 GameObject:
   m_ObjectHideFlags: 0
