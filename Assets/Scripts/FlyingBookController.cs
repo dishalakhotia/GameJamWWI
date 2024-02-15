@@ -12,6 +12,11 @@ public class FlyingBookController : MonoBehaviour
     public float hoverHeight = 2.0f; // Desired hover height
     public float hoverForce = 300f; // Force applied to maintain hover
     private Rigidbody rb; // Rigidbody component for physics-based movement
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 20f;
+
+
+
 
     void Start()
     {
@@ -26,9 +31,16 @@ public class FlyingBookController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Tap space for dodging
+        RotateTowardsCursor();
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(Dodge());
+        }
+
+        if (Input.GetMouseButtonDown(0)) // Left mouse button for shooting
+        {
+            ShootBullet();
         }
     }
 
@@ -38,10 +50,37 @@ public class FlyingBookController : MonoBehaviour
         float moveVertical = Input.GetAxisRaw("Vertical");
         Vector3 targetVelocity = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized * speed;
 
+
+
         // Smoothly stop the movement when keys are released
         movementVelocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref movementVelocity, smoothTime);
         rb.velocity = new Vector3(movementVelocity.x, rb.velocity.y, movementVelocity.z); // Apply horizontal movement
     }
+    void RotateTowardsCursor()
+    {
+        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
+
+        if (groundPlane.Raycast(cameraRay, out rayLength))
+        {
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue); // For debugging
+
+            // Rotate the player to face the point
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+        }
+    }
+
+    void ShootBullet()
+    {
+        GameObject bullet = ObjectPoolManager.Instance.GetBullet();
+        bullet.transform.position = transform.position + transform.forward; // Adjust as needed
+        bullet.transform.rotation = transform.rotation;
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.velocity = transform.forward * bulletSpeed; // Use your bullet speed value
+    }
+
 
     void MaintainHover()
     {
@@ -70,4 +109,20 @@ public class FlyingBookController : MonoBehaviour
             yield return null;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Page page = other.GetComponent<Page>();
+        if (page != null)
+        {
+            // Find the PowerUpManager instance in the current level
+            PowerUpManager powerUpManager = FindObjectOfType<PowerUpManager>();
+            if (powerUpManager != null)
+            {
+                powerUpManager.CollectPage(page.pageType);
+            }
+            Destroy(other.gameObject); // Remove the page from the scene
+        }
+    }
+
 }
