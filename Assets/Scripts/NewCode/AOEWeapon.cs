@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class AOEWeapon : BaseWeapon
 {
-    public override void Fire(Vector3 direction)
+    public GameObject vfxPrefab;
+    public override void Fire()
     {
         // Instantiate visual effects prefab
-        Instantiate(_PageData.vfxPrefab, transform.position, Quaternion.identity);
+        Instantiate(vfxPrefab, transform.position, Quaternion.identity);
         Debug.Log("AOEWeapon.Fire() called");
         // Implement area of effect logic here
         // For example, spherecasting to hit enemies within a radius

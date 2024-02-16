@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class LaserWeapon : BaseWeapon
 {
-    public override void Fire(Vector3 direction)
+
+    public GameObject vfxPrefab;
+    public override void Fire()
     {
 
-        Instantiate(_PageData.vfxPrefab, transform.position, Quaternion.identity);
+        Instantiate(vfxPrefab, transform.position, Quaternion.identity);
         Debug.Log("LaserWeapon.Fire() called");
     }
 }

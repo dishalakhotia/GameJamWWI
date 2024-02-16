@@ -16,6 +16,8 @@ public class FlyingBookController : MonoBehaviour
     public float bulletSpeed = 20f;
 
     public static FlyingBookController Instance;
+
+
     private void Awake()
     {
         Instance = this;
@@ -41,10 +43,6 @@ public class FlyingBookController : MonoBehaviour
             StartCoroutine(Dodge());
         }
 
-        if (Input.GetMouseButtonDown(0)) // Left mouse button for shooting
-        {
-            ShootBullet();
-        }
     }
 
     void HandleMovement()
@@ -75,14 +73,7 @@ public class FlyingBookController : MonoBehaviour
         }
     }
 
-    void ShootBullet()
-    {
-        GameObject bullet = ObjectPoolManager.Instance.GetBullet(bulletPrefab);
-        bullet.transform.position = transform.position + transform.forward; // Adjust as needed
-        bullet.transform.rotation = transform.rotation;
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * bulletSpeed; // Use your bullet speed value
-    }
+  
 
 
     void MaintainHover()

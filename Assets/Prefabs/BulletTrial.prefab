@@ -121,8 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLife: 1
   damage: 10
-  speed: 30
-  movement: {fileID: 0}
+  speed: 19.3
 --- !u!54 &-8706826426630446268
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: ChemistryPage
   m_EditorClassIdentifier: 
   damage: 20
-  bulletSpeed: 0
+  bulletSpeed: 4.69
   bulletPrefab: {fileID: 0}
-  vfxPrefab: {fileID: 0}
+  vfxPrefab: {fileID: 9001770443578952493, guid: 1a2c3c0d17602bf49bfa6fd7771b4e08,
+    type: 3}
   particleSystemPrefab: {fileID: 0}
   uiRawImageTexture: {fileID: 0}
