@@ -4945,6 +4945,8 @@ GameObject:
   - component: {fileID: 1478735852460940578}
   - component: {fileID: 3859943974542492749}
   - component: {fileID: 4003019709022434921}
+  - component: {fileID: -3246371509738586352}
+  - component: {fileID: -843986346859555987}
   m_Layer: 0
   m_Name: Chemistry_Projectile
   m_TagString: fireProj
@@ -5009,7 +5011,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
-  ImpactPrefab: {fileID: 0}
+  ImpactPrefab: {fileID: 1697712562267583802, guid: bfea5a6dc14a4214685dc59a16cf0f39,
+    type: 3}
   trails:
   - {fileID: 4261958975987026470}
   offset: {x: 0, y: 0.1, z: 0}
+--- !u!114 &-3246371509738586352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7625094304885302363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd597bbc86f1bb4984882090f55d974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletLife: 1
+  damage: 10
+  speed: 30
+--- !u!65 &-843986346859555987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7625094304885302363}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

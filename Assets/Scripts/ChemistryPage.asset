@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb2fda9b31b6cb4eb23ec1bcec4467d, type: 3}
   m_Name: ChemistryPage
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 20
   bulletSpeed: 0
   bulletPrefab: {fileID: 0}
   vfxPrefab: {fileID: 0}

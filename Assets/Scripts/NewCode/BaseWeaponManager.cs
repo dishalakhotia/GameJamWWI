@@ -20,6 +20,7 @@ public class BaseWeaponManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SwitchWeapon(0);
+            Debug.Log("SwitchWeapon(0)");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -34,6 +35,7 @@ public class BaseWeaponManager : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             FireCurrentWeapon(Vector3.forward); // Example direction (forward)
+            Debug .Log("FireCurrentWeapon(Vector3.forward)");
         }
     }
 

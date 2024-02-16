@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
-    public event Action<float> OnHealthPctChanged = delegate { };
+    public int _health;
 
     void Start()
     {
@@ -18,8 +18,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        float currentHealthPct = (float)currentHealth / (float)maxHealth;
-        OnHealthPctChanged(currentHealthPct);
+        
         Debug.Log("enemyDamage");
 
         if (currentHealth <= 0)
@@ -27,7 +26,10 @@ public class EnemyHealth : MonoBehaviour
             Die();
         }
     }
-
+    private void Update()
+    {
+        _health = currentHealth;
+    }
     void Die()
     {
         // Optional: Add logic for enemy death, like playing animations or dropping items.

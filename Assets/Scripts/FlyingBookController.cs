@@ -15,8 +15,11 @@ public class FlyingBookController : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
 
-
-
+    public static FlyingBookController Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {

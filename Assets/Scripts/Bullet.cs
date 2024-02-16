@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public int damage = 10; // Damage the bullet does to the player
     public float speed= 30f;
     private Rigidbody rb;
-    public FlyingBookController movement;
+
 
     // public delegate void BulletHitHandler(GameObject hitObject);
     // public static event BulletHitHandler OnBulletHit;
@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
 
     void ReturnToPool()
     {
-        ObjectPoolManager.Instance.ReturnBullet(gameObject, movement.bulletPrefab);
+        ObjectPoolManager.Instance.ReturnBullet(gameObject, FlyingBookController.Instance.bulletPrefab);
         Destroy(gameObject);
     }
 
