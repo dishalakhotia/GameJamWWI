@@ -5,37 +5,53 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager Instance;
-    public GameObject[] bulletPrefab = new GameObject[0];
-    private Queue<GameObject> bulletPool = new Queue<GameObject>();
+
+    // A dictionary to hold the pool for each bullet type.
+    private Dictionary<GameObject, Queue<GameObject>> bulletPools = new Dictionary<GameObject, Queue<GameObject>>();
 
     void Awake()
     {
         Instance = this;
-        PreloadBullets(11); // Preload bullets into the pool
     }
 
-    void PreloadBullets(int count)
+    // Method to get a bullet from the specified bullet pool
+    public GameObject GetBullet(GameObject prefab)
     {
-        for (int i = 0; i < count; i++)
+        if (!bulletPools.ContainsKey(prefab))
         {
-            GameObject bullet = Instantiate(bulletPrefab[0]);
-            bullet.SetActive(false);
-            bulletPool.Enqueue(bullet);
+            bulletPools[prefab] = new Queue<GameObject>();
+            PreloadBullets(prefab, 20); // Preload 20 bullets of this type
         }
-    }
 
-    public GameObject GetBullet()
-    {
-        if (bulletPool.Count == 0) PreloadBullets(20); // Load more bullets if pool is empty
-        GameObject bullet = bulletPool.Dequeue();
+        if (bulletPools[prefab].Count == 0)
+        {
+            PreloadBullets(prefab, 10); // Load more bullets if pool is empty
+        }
+
+        GameObject bullet = bulletPools[prefab].Dequeue();
         bullet.SetActive(true);
         return bullet;
     }
 
-    public void ReturnBullet(GameObject bullet)
+    // Method to return a bullet to its respective pool
+    public void ReturnBullet(GameObject bullet, GameObject prefab)
     {
         bullet.SetActive(false);
-        bulletPool.Enqueue(bullet);
-        Destroy(bullet);
+        if (!bulletPools.ContainsKey(prefab))
+        {
+            bulletPools[prefab] = new Queue<GameObject>();
+        }
+        bulletPools[prefab].Enqueue(bullet);
+    }
+
+    // Preload bullets into the pool
+    void PreloadBullets(GameObject prefab, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            GameObject bullet = Instantiate(prefab);
+            bullet.SetActive(false);
+            bulletPools[prefab].Enqueue(bullet);
+        }
     }
 }

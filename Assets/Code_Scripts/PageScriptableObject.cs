@@ -13,6 +13,8 @@ public class PageScriptableObject : ScriptableObject
     public GameObject vfxPrefab;
     public Sprite rawImage; // Using Sprite as it's more common for UI in Unity
     public int damage = 10;
+    public float bulletSpeed = 30f; // Ensure this property is added
+    public float bulletLifeTime = 5f;
 
     // Add any other properties you think might be necessary for your game's mechanics
 }

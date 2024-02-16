@@ -26,10 +26,11 @@ public class BulletSpawner : MonoBehaviour
     void Update()
     {
         MoveAlongPath();
+        EnemyShoot();
     }
     void EnemyShoot()
     {
-        GameObject bullet = ObjectPoolManager.Instance.GetBullet();
+        GameObject bullet = ObjectPoolManager.Instance.GetBullet(bulletPrefab);
        // bullet.transform.position = enemyGun.position; // Assuming you have a gun position
         bullet.transform.rotation = Quaternion.LookRotation(target.position - transform.position);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();

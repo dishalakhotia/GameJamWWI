@@ -7,16 +7,32 @@ public class Bullet : MonoBehaviour
     public float bulletLife = 1.0f; // Bullet life in seconds
     public int damage = 10; // Damage the bullet does to the player
     public float speed= 30f;
+    private Rigidbody rb;
+    public PlayerMovement movement;
 
-   // public delegate void BulletHitHandler(GameObject hitObject);
-   // public static event BulletHitHandler OnBulletHit;
+    // public delegate void BulletHitHandler(GameObject hitObject);
+    // public static event BulletHitHandler OnBulletHit;
 
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = false; // Turn off gravity for the bullet
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // Improve collision detection for fast-moving objects
+        // Prevent bullet self-collision, assuming bullets are on a specific layer
+        Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
+    }
 
-    private void Start()
+    public void Initialize(Vector3 direction)
+    {
+        rb.velocity = direction * speed;
+        Invoke("ReturnToPool", bulletLife); // Return or destroy bullet after its lifetime
+    }
+
+   /* private void Start()
     {
 
         Invoke("ReturnToPool", bulletLife); // Destroy the bullet after its life expire
-    }
+    }*/
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -35,7 +51,7 @@ public class Bullet : MonoBehaviour
 
     void ReturnToPool()
     {
-        ObjectPoolManager.Instance.ReturnBullet(gameObject);
+        ObjectPoolManager.Instance.ReturnBullet(gameObject, movement.bulletPrefab);
         Destroy(gameObject);
     }
 
@@ -43,7 +59,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // Move the bullet forward based on its speed
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        rb.velocity = transform.forward * speed;
     }
 
     /*private void OnTriggerEnter(Collider other)

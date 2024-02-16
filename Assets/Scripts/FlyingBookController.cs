@@ -74,7 +74,7 @@ public class FlyingBookController : MonoBehaviour
 
     void ShootBullet()
     {
-        GameObject bullet = ObjectPoolManager.Instance.GetBullet();
+        GameObject bullet = ObjectPoolManager.Instance.GetBullet(bulletPrefab);
         bullet.transform.position = transform.position + transform.forward; // Adjust as needed
         bullet.transform.rotation = transform.rotation;
         Rigidbody rb = bullet.GetComponent<Rigidbody>();

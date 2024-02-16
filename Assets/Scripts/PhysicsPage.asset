@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7d43df8e0ce646b64d9c1a7919a0d, type: 3}
+  m_Name: PhysicsPage
+  m_EditorClassIdentifier: 
+  pageName: Physics Page
+  description: Description here
+  attackSpeed: 2
+  fireRate: 0.5
+  bulletPrefab: {fileID: 2638358646463430993, guid: 3f73356387e873c4caff2d013d5853a7,
+    type: 3}
+  vfxPrefab: {fileID: 5872884474963812416, guid: c5b07339094c2a84aa28419ef918e73a,
+    type: 3}
+  rawImage: {fileID: 0}
+  damage: 10
+  bulletSpeed: 30
+  bulletLifeTime: 5
