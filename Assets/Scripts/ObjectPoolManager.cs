@@ -26,7 +26,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     public GameObject GetBullet()
     {
-        if (bulletPool.Count == 0) PreloadBullets(10); // Load more bullets if pool is empty
+        if (bulletPool.Count == 0) PreloadBullets(20); // Load more bullets if pool is empty
         GameObject bullet = bulletPool.Dequeue();
         bullet.SetActive(true);
         return bullet;
