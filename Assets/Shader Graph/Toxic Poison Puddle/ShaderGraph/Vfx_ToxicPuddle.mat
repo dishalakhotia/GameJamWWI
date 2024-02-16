@@ -57,11 +57,11 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 0
+    - _Blend: 2
     - _BlendModePreserveSpecular: 0
     - _CastShadows: 1
     - _Cull: 2
-    - _DstBlend: 10
+    - _DstBlend: 1
     - _Metallic: 0.4
     - _Normals_Strenght: 0.12
     - _QueueControl: 1
@@ -69,20 +69,20 @@ Material:
     - _ReceiveShadows: 1
     - _SrcBlend: 5
     - _Surface: 1
-    - _Transparency: 0
+    - _Transparency: 0.25
     - _TransparencyMask: 1.48
-    - _VoronoiAgitation: 1
+    - _VoronoiAgitation: 2
     - _VoronoiPower: 4.53
-    - _VoronoiScale: 10
+    - _VoronoiScale: 25.9
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     - _smoothness: 1.4
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.52646387, b: 0.09992374, a: 1}
+    - _BaseColor: {r: 0, g: 0.79797, b: 0.15145606, a: 1}
     - _NormalSpeed: {r: 0, g: 0.2, b: 0, a: 0}
-    - _VoronoiColor: {r: 6.19223, g: 0.6880256, b: 0, a: 1}
+    - _VoronoiColor: {r: 0, g: 1.39772, b: 0.15725909, a: 1}
     - _VoronoiSpeed: {r: 0, g: 0.1, b: 0, a: 0}
     - _VoronoiTiling: {r: 1.2, g: 0.6, b: 0, a: 0}
   m_BuildTextureStacks: []
