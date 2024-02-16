@@ -26,7 +26,7 @@ public class FlyingBookController : MonoBehaviour
     void FixedUpdate()
     {
         HandleMovement();
-        MaintainHover();
+        //MaintainHover();
     }
 
     void Update()
@@ -120,6 +120,7 @@ public class FlyingBookController : MonoBehaviour
             if (powerUpManager != null)
             {
                 powerUpManager.CollectPage(page.pageType);
+                Debug.Log("pages Collected");
             }
             Destroy(other.gameObject); // Remove the page from the scene
         }

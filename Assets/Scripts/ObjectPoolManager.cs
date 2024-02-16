@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager Instance;
-    public GameObject bulletPrefab;
+    public GameObject[] bulletPrefab = new GameObject[0];
     private Queue<GameObject> bulletPool = new Queue<GameObject>();
 
     void Awake()
@@ -18,7 +18,7 @@ public class ObjectPoolManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab);
+            GameObject bullet = Instantiate(bulletPrefab[0]);
             bullet.SetActive(false);
             bulletPool.Enqueue(bullet);
         }
