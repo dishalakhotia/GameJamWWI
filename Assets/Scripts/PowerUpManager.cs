@@ -8,7 +8,7 @@ public class PowerUpManager : MonoBehaviour
 
 {
     public PageConfiguration levelPages;
-    private Dictionary<int, PageType> keyToPageMap = new Dictionary<int, PageType>();
+    private Dictionary<int, GameObject> keyToPageMap = new Dictionary<int, GameObject>();
     private Dictionary<PageType, bool> collectedPages = new Dictionary<PageType, bool>();
     public GameObject[] pageUIElements;
     public UIManager uiManager;
@@ -89,7 +89,7 @@ public class PowerUpManager : MonoBehaviour
         // Implement chemistry power-up activation
     }
 
-    void ActivatePower(PageType type)
+    void ActivatePower(GameObject type)
     {
         // Check if the page has been collected and activate the power
     }

@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public int damage = 10; // Damage the bullet does to the player
     public float speed= 30f;
     private Rigidbody rb;
-    public PlayerMovement movement;
+    public FlyingBookController movement;
 
     // public delegate void BulletHitHandler(GameObject hitObject);
     // public static event BulletHitHandler OnBulletHit;
@@ -45,6 +45,7 @@ public class Bullet : MonoBehaviour
         {
             // Apply damage to the enemy
             other.GetComponent<EnemyHealth>()?.TakeDamage(damage);
+            Debug.Log("enemyHit");
             ReturnToPool(); // Return bullet to pool or destroy
         }
     }
