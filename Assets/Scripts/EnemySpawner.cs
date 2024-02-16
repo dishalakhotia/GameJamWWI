@@ -11,11 +11,13 @@ public class EnemySpawner : MonoBehaviour
 
     public Wave[] waves;
 
-    private int waveIndex = 0;
+    [HideInInspector] public int waveIndex = 0;
 
     private bool readyToCountDown;
 
     public Transform wayPoint1, wayPoint2;
+
+    bool Spawing = false;
 
     private void Start()
     {
@@ -28,35 +30,47 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void Update()
-    {
+    { if(waveIndex >= waves.Length)
+        {
+            Debug.Log("Congrats you win!!");
+            return;
+
+        }
         waveCountdown -= Time.deltaTime;   
 
-        if (waveCountdown <= 0)
+        if (waveCountdown <= 0 && !Spawing)
         {
             readyToCountDown = false;
             waveCountdown = waves[waveIndex].waveInterval;
             StartCoroutine(SpawnWave());
+            Spawing = true;
         }
 
+        if (waves[waveIndex].enemiesLeft == 0)
+        {
+            readyToCountDown = true;
+            waveIndex++;
+        }
     }
 
     IEnumerator SpawnWave()
     {
-        for (int i = 0; i < waves[waveIndex].enemies.Length; i++)
+        if (waveIndex < waves.Length)
         {
-            for (int J = 0; J < spawnPoints.Count; J++)
+            for (int i = 0; i < waves[waveIndex].enemies.Length; i++)
             {
-                EnemyAIController enemy = Instantiate(waves[waveIndex].enemies[i], spawnPoints[J].transform.position, spawnPoints[J].transform.rotation);
-                enemy.waypoints[0] = wayPoint1;
-                enemy.waypoints[1] = wayPoint2;
-                //enemy.transform.SetParent(spawnPoints[J].transform);
+                for (int J = 0; J < spawnPoints.Count; J++)
+                {
+                    EnemyAIController enemy = Instantiate(waves[waveIndex].enemies[i], spawnPoints[J].transform.position, spawnPoints[J].transform.rotation);
+                    enemy.waypoints[0] = wayPoint1;
+                    enemy.waypoints[1] = wayPoint2;
+                }
+
+
+
+                yield return new WaitForSeconds(waves[waveIndex].enemyInterval);
             }
-
-
-
-            yield return new WaitForSeconds(waves[waveIndex].enemyInterval);
         }
-
     }
 
     [System.Serializable]
