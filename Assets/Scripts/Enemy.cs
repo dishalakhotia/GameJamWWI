@@ -19,13 +19,13 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         transform.Translate(transform.forward * speed * Time.deltaTime);
-        countdown -= Time.deltaTime;
+        //countdown -= Time.deltaTime;
 
-        if(countdown <= 0)
-        {
-            Destroy(gameObject);
+        //if(countdown <= 0)
+        //{
+        //    Destroy(gameObject);
 
             
-        }
+        //}
     }
 }

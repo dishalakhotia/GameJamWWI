@@ -1805,8 +1805,8 @@ MonoBehaviour:
     - {fileID: 8596693280601437656}
     - {fileID: 7684981077123955433}
     - {fileID: 7684981077123955433}
-    enemyInterval: 0
-    waveInterval: 0
+    enemyInterval: 1
+    waveInterval: 5
     enemiesLeft: 0
   - enemies:
     - {fileID: 7684981077123955433}
@@ -1816,16 +1816,16 @@ MonoBehaviour:
     - {fileID: 1572648953436927699}
     - {fileID: 1572648953436927699}
     - {fileID: 1572648953436927699}
-    enemyInterval: 0
-    waveInterval: 0
+    enemyInterval: 0.75
+    waveInterval: 3
     enemiesLeft: 0
   - enemies:
     - {fileID: 8596693280601437656}
     - {fileID: 8596693280601437656}
     - {fileID: 8596693280601437656}
     - {fileID: 8596693280601437656}
-    enemyInterval: 0
-    waveInterval: 0
+    enemyInterval: 0.75
+    waveInterval: 5
     enemiesLeft: 0
 --- !u!1001 &1516800166
 PrefabInstance:
@@ -2588,6 +2588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550463727306718371, guid: 9dcf2db50bf3d92438ed3cbff04ba5b9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

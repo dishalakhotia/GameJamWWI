@@ -44,8 +44,8 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int J = 0; J < spawnPoints.Count; J++)
             {
-                Enemy enemy = Instantiate(waves[waveIndex].enemies[i], spawnPoints[J].transform);
-                enemy.transform.SetParent(spawnPoints[J].transform);
+                Enemy enemy = Instantiate(waves[waveIndex].enemies[i], spawnPoints[J].transform.position, spawnPoints[J].transform.rotation);
+                //enemy.transform.SetParent(spawnPoints[J].transform);
             }
 
 
