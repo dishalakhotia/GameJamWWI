@@ -18,9 +18,11 @@ public class EnemySpawner : MonoBehaviour
     public Transform wayPoint1, wayPoint2;
 
     bool Spawing = false;
+    bool wavesComplete;
 
     private void Start()
     {
+        wavesComplete = false;
         readyToCountDown = true;
 
         for(int i=0; i<waves.Length; i++)
@@ -33,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
     { if(waveIndex >= waves.Length)
         {
             Debug.Log("Congrats you win!!");
+            wavesComplete = true;
             return;
 
         }
