@@ -36,6 +36,7 @@ public class EnemyAIController : MonoBehaviour
     bool m_IsPatrol;
     bool m_CaughtPlayer;
 
+    private EnemySpawner spawner;
 
     private void Start()
     {
@@ -52,6 +53,8 @@ public class EnemyAIController : MonoBehaviour
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speedWalk;
         navMeshAgent.SetDestination(waypoints[m_CurrentWayPointIndex].position);
+
+        spawner = GetComponentInParent<EnemySpawner>();
     }
 
     public void Update()
@@ -211,5 +214,7 @@ public class EnemyAIController : MonoBehaviour
     {
 
     }
+
+
 }
     

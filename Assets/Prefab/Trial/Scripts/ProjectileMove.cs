@@ -11,12 +11,17 @@ public class ProjectileMove : MonoBehaviour
     private Rigidbody rb;
     public Vector3 offset;
     protected Coroutine playerAttackCoroutine;
-
+    public int damage = 10; // Damage the bullet does to the player
     // public delegate void AttackEvent(IDamage Target);
     //public AttackEvent OnAttack;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+       
+        rb.useGravity = false; // Turn off gravity for the bullet
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // Improve collision detection for fast-moving objects
+        // Prevent bullet self-collision, assuming bullets are on a specific layer
+        Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
     }
 
     // Update is called once per frame
@@ -30,29 +35,19 @@ public class ProjectileMove : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        
-
-        //IDamage damageable = collision.gameObject.GetComponent<IDamage>();
-        //Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        /*if (damageable != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Damageable.Add(damageable);
-            if (playerAttackCoroutine == null)
-            {
-                PlayerAttack();
-                if(this.CompareTag("fireProj"))
-                {
-                    enemy.onFireVFX.SetActive(true);
-                }
-            }
-
-        }*/
-        //if (collision.gameObject.tag == "enemy")
-        //{
-        //    PlayerClass.Instance.DoDamage(PlayerClass.Instance.baseAttackDamage);
-
-        //    Debug.Log("Enemy Hit" + collision.gameObject.name + PlayerClass.Instance.baseAttackDamage);
-        //}
+            // Apply damage to the player
+            collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+           
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Apply damage to the enemy
+            collision.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(damage);
+            Debug.Log("enemyHit");
+            
+        }
 
         speed = 0;
 

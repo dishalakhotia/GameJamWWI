@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
 
     private bool readyToCountDown;
 
+    public Transform wayPoint1, wayPoint2;
+
     private void Start()
     {
         readyToCountDown = true;
@@ -44,8 +46,10 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int J = 0; J < spawnPoints.Count; J++)
             {
-                Enemy enemy = Instantiate(waves[waveIndex].enemies[i], spawnPoints[J].transform);
-                enemy.transform.SetParent(spawnPoints[J].transform);
+                EnemyAIController enemy = Instantiate(waves[waveIndex].enemies[i], spawnPoints[J].transform.position, spawnPoints[J].transform.rotation);
+                enemy.waypoints[0] = wayPoint1;
+                enemy.waypoints[1] = wayPoint2;
+                //enemy.transform.SetParent(spawnPoints[J].transform);
             }
 
 
@@ -59,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
 
     public class Wave
     {
-        public Enemy[] enemies;
+        public EnemyAIController[] enemies;
         public float enemyInterval;
         public float waveInterval;
 
