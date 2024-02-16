@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PowerUpManager : MonoBehaviour
-
-
 {
     public PageConfiguration levelPages;
     private Dictionary<int, GameObject> keyToPageMap = new Dictionary<int, GameObject>();
@@ -74,7 +72,7 @@ public class PowerUpManager : MonoBehaviour
             collectedPages[pageType] = true;
             Debug.Log("Page Collected");
             UpdateUI();
-            uiManager.UpdatePageUI(pageType, true);
+      
             Debug.Log("UI updated");
         }
     }

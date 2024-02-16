@@ -37,10 +37,12 @@ public class BaseWeaponManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SwitchWeapon(2);
+            Debug.Log("SwitchWeapon(2)");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             SwitchWeapon(3);
+            Debug.Log("SwitchWeapon(3)");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha0))
         {

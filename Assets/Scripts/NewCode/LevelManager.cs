@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     public CollectablePage firstWeapon, secondWeapon, thirdWeapon;
     public BaseWeapon currentlevelweapon1, currentlevelweapon2, currentlevelweapon3;
-    public bool Weapon1acquired, weapon2acquired, weapon3acquired;
+    public bool Weapon1acquired, Weapon2acquired, Weapon3acquired;
     public int currentWeaponAcquiredIndex;
 
     private void Awake()
@@ -30,6 +30,25 @@ public class LevelManager : MonoBehaviour
 
     
         }
+        else if(currentWeaponAcquiredIndex == 2)
+        {
+            if (!Weapon2acquired)
+            {
+                Weapon2acquired = true;
+                BaseWeaponManager.instance.weapons[currentWeaponAcquiredIndex] = (currentlevelweapon2);
+
+
+            }
+        }
+        else if(currentWeaponAcquiredIndex == 3)
+        {
+            if (!Weapon3acquired)
+            {
+                Weapon3acquired = true;
+                BaseWeaponManager.instance.weapons[currentWeaponAcquiredIndex] = (currentlevelweapon3);
+            }
+        } 
+
        
     }
 

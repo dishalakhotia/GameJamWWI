@@ -30,4 +30,6 @@ public class CollectablePage : MonoBehaviour
         }
         
     }
+
+
 }
