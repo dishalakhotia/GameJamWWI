@@ -11,9 +11,10 @@ public class ProjectileMove : MonoBehaviour
     private Rigidbody rb;
     public Vector3 offset;
     protected Coroutine playerAttackCoroutine;
-    public int damage = 10; // Damage the bullet does to the player
+    public int damage; // Damage the bullet does to the player
     // public delegate void AttackEvent(IDamage Target);
     //public AttackEvent OnAttack;
+   
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -39,6 +40,7 @@ public class ProjectileMove : MonoBehaviour
         {
             // Apply damage to the player
             collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            Debug.Log("hit enemy for" + " " + damage);
            
         }
         else if (collision.gameObject.CompareTag("Enemy"))

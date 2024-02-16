@@ -20,8 +20,15 @@ public class LevelManager : MonoBehaviour
     {
         if(currentWeaponAcquiredIndex ==  1)
         {
-            Weapon1acquired = true;
-            BaseWeaponManager.instance.weapons.Add(currentlevelweapon1);
+            if(!Weapon1acquired) 
+            {
+                Weapon1acquired = true;
+                BaseWeaponManager.instance.weapons[currentWeaponAcquiredIndex] = (currentlevelweapon1);
+
+
+            }
+
+    
         }
        
     }

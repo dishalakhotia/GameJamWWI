@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollisionWeapon : BaseWeapon
 {
     public GameObject vfx;
-
+    public int baseDamage;
     public override void Fire()
     {
         EnableAttack();
@@ -20,8 +20,10 @@ public class CollisionWeapon : BaseWeapon
         
 
         GameObject objVFX = Instantiate(vfx, BaseWeaponManager.instance.startPoint.position, Quaternion.identity);
-
-       
+        ProjectileMove projectileMove = objVFX.GetComponent<ProjectileMove>();
+        projectileMove.transform.position = transform.position + transform.forward; // Adjust as needed
+        projectileMove.transform.rotation = transform.rotation;
+        projectileMove.damage = baseDamage;
 
         RotateTo(objVFX, BaseWeaponManager.instance.endPoint.position);
         Debug.Log("FIRE FIRE ROT");
