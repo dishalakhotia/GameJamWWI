@@ -35,6 +35,7 @@ Transform:
   - {fileID: 4552063013779082106}
   - {fileID: 45203871099504353}
   - {fileID: 1361472420399769021}
+  - {fileID: 1247357296223301597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5076050440857128689
@@ -456,6 +457,80 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8211372540250625004, guid: e8840f425eaa9bd429513b91c9ad6398, type: 3}
+--- !u!1001 &1640781030209931318
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1321012065088515093}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.225
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.494
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.061
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9474252
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.31997734
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 37.323
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: da1fbef1115df3b4199f7908fc671e6b,
+        type: 3}
+      propertyPath: m_Name
+      value: Lab Corner Table
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da1fbef1115df3b4199f7908fc671e6b, type: 3}
+--- !u!4 &1247357296223301597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: da1fbef1115df3b4199f7908fc671e6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1640781030209931318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4082113166627204241
 PrefabInstance:
   m_ObjectHideFlags: 0
