@@ -1436,6 +1436,7 @@ MonoBehaviour:
     enemyInterval: 3
     waveInterval: 10
     enemiesLeft: 0
+  waveIndex: 0
   wayPoint1: {fileID: 1212826297}
   wayPoint2: {fileID: 961508720}
 --- !u!4 &962761865
@@ -2511,89 +2512,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a81059dbe1dc5864793e45ccc317ef96, type: 2}
   m_BuildHeightMesh: 0
---- !u!1001 &3035205018850803984
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5329509233201606567, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 221501423}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -17.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.494
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523083740667947683, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6360835220746170953, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 9024157970351497570, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1212826297}
-    - target: {fileID: 9024157970351497570, guid: 4688612eeb5291748901a0241b956aa6,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 961508720}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4688612eeb5291748901a0241b956aa6, type: 3}
 --- !u!1001 &6134739920941486697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2747,7 +2665,6 @@ SceneRoots:
   - {fileID: 1222210831}
   - {fileID: 158947822}
   - {fileID: 1186204214}
-  - {fileID: 3035205018850803984}
   - {fileID: 1212826297}
   - {fileID: 961508720}
   - {fileID: 1223930300}

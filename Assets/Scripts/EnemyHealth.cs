@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour
 
     public int _health;
 
+    private EnemySpawner spawner;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -24,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+
+            spawner.waves[spawner.waveIndex].enemiesLeft-- ;
         }
     }
     private void Update()
