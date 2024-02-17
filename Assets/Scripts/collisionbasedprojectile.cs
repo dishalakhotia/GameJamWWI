@@ -5,16 +5,12 @@ using UnityEngine;
 public class collisionbasedprojectile : MonoBehaviour
 {
     public float speed;
-
-
     private Rigidbody rb;
     public Vector3 offset;
+    public int damage;
+                      
 
-    public int damage; // Damage the bullet does to the player
-                       // public delegate void AttackEvent(IDamage Target);
-                       //public AttackEvent OnAttack;
-
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
 

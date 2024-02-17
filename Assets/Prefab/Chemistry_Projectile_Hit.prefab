@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1989494348490431670}
   - component: {fileID: 4222387228071914123}
   - component: {fileID: 7668700680869961140}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Debris
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4897,7 +4897,7 @@ GameObject:
   - component: {fileID: 6638979260235589990}
   - component: {fileID: 1428306528179703047}
   - component: {fileID: 417447136060490803}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ParticleImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9781,7 +9781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6737293448944008016}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Chemistry_Projectile_Hit
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9815,7 +9815,7 @@ GameObject:
   - component: {fileID: 581408057600949477}
   - component: {fileID: 6471159532642928105}
   - component: {fileID: 2925648797947613814}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14705,7 +14705,7 @@ GameObject:
   - component: {fileID: 6469851414367867587}
   - component: {fileID: 969122850419406230}
   - component: {fileID: 2240169671963067865}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SmokeCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19591,7 +19591,7 @@ GameObject:
   - component: {fileID: 2055957448221238591}
   - component: {fileID: 9041922313481422525}
   - component: {fileID: 4664423474704067354}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Debris (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

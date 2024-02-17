@@ -11,13 +11,14 @@ public class BaseWeaponManager : MonoBehaviour
     private int currentWeaponIndex = 0;
     public Transform startPoint;
     public Transform endPoint;
-
+    public Transform laserPoint;
     public static BaseWeaponManager instance;
 
-
+    public Animator animator;
     private void Awake()
     {
         instance = this;
+        animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -104,8 +105,9 @@ public class BaseWeaponManager : MonoBehaviour
 
     void FireCurrentWeapon()
     {
-        Debug.Log("ready to fire");
+        //Debug.Log("ready to fire");
         weapons[currentWeaponIndex].Fire();
+        animator.SetTrigger("Attack");
     }
 
    

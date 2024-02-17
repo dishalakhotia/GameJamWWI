@@ -28,24 +28,26 @@ public class CollisionWeapon : BaseWeapon
 
             ProjectileMove projectileMove = objVFX.GetComponent<ProjectileMove>();
             //projectileMove.transform.position = BaseWeaponManager.instance.startPoint.position + transform.forward; // Adjust as needed
+            Debug.Log("no swish");
             projectileMove.transform.rotation = transform.rotation;
             projectileMove.damage = baseDamage;
 
             RotateTo(objVFX, BaseWeaponManager.instance.endPoint.position);
             Debug.Log("FIRE FIRE ROT");
         }
-        else if (!W_IMP)
+        else
         {
             GameObject GO = Instantiate(vfx, BaseWeaponManager.instance.startPoint.position, Quaternion.identity);
 
 
-            collisionbasedprojectile projectileMove = GO.GetComponent<collisionbasedprojectile>();
+            collisionbasedprojectile cbp = GO.GetComponentInChildren<collisionbasedprojectile>();
             //projectileMove.transform.position = BaseWeaponManager.instance.startPoint.position + transform.forward; // Adjust as needed
-            projectileMove.transform.rotation = BaseWeaponManager.instance.transform.rotation;
-            projectileMove.damage = baseDamage;
+            Debug.Log("yes swish");
+            cbp.transform.rotation = transform.rotation;
+            cbp.damage = baseDamage;
 
             RotateTo(GO, BaseWeaponManager.instance.endPoint.position);
-            Debug.Log("FIRE FIRE ROT");
+            Debug.Log("FIRE FIRE ROT2");
         }
 
      

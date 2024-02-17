@@ -2,23 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public delegate void HealthChanged(float currentHealth);
+    public event HealthChanged OnHealthChanged;
+
     public int maxHealth = 100;
     private int currentHealth;
-
+    
     public int _health;
 
     void Start()
     {
         currentHealth = maxHealth;
+        
     }
 
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        
+        OnHealthChanged?.Invoke(currentHealth);
         Debug.Log("enemyDamage");
 
         if (currentHealth <= 0)
@@ -29,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
     private void Update()
     {
         _health = currentHealth;
+     
     }
     void Die()
     {
