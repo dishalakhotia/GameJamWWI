@@ -1423,17 +1423,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f65480e5b10c408d9d5c25b59670a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCountdown: 5
+  waveCountdown: 2
   spawnPoints:
   - {fileID: 344054155}
   - {fileID: 291850974}
   - {fileID: 765430668}
-  - {fileID: 1048738189}
   waves:
   - enemies:
     - {fileID: 9024157970351497570, guid: 4688612eeb5291748901a0241b956aa6, type: 3}
     - {fileID: 9024157970351497570, guid: 4688612eeb5291748901a0241b956aa6, type: 3}
-    enemyInterval: 3
+    enemyInterval: 10
     waveInterval: 10
     enemiesLeft: 0
   waveIndex: 0
