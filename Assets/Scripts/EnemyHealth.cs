@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public event HealthChanged OnHealthChanged;
 
     public int maxHealth = 100;
-    private int currentHealth;
+    private int currentHealth = 100;
     
     public int _health;
 
