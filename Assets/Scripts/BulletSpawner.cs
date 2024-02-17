@@ -23,36 +23,7 @@ public class BulletSpawner : MonoBehaviour
     {
         StartCoroutine(SpawnBulletss());
     }
-    void Update()
-    {
-        MoveAlongPath();
-        EnemyShoot();
-    }
-    void EnemyShoot()
-    {
-        GameObject bullet = ObjectPoolManager.Instance.GetBullet(bulletPrefab);
-       // bullet.transform.position = enemyGun.position; // Assuming you have a gun position
-        bullet.transform.rotation = Quaternion.LookRotation(target.position - transform.position);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.velocity = (target.position - transform.position).normalized * bulletSpeed; // Adjust target and bullet speed
-    }
-
-    void MoveAlongPath()
-    {
-        if (pathPoints.Length == 0) return;
-
-        transform.position = Vector3.MoveTowards(transform.position, pathPoints[currentPointIndex].position, moveSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, pathPoints[currentPointIndex].position) < 0.1f)
-        {
-            currentPointIndex++;
-            if (currentPointIndex >= pathPoints.Length)
-            {
-                currentPointIndex = 0; // Loop back to the start of the path
-            }
-        }
-    }
-
+    
 
     IEnumerator SpawnBulletss()
     {
@@ -89,7 +60,7 @@ public class BulletSpawner : MonoBehaviour
 
     void SpawnStraight()
     {
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
+        Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation);
     }
 
 
@@ -98,7 +69,7 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < bulletsPerGroup; i++)
         {
             Quaternion rotation = Quaternion.Euler(0, -spreadAngle / 2 + (spreadAngle / (bulletsPerGroup - 1)) * i, 0);
-            Instantiate(bulletPrefab, transform.position, transform.rotation * rotation);
+            Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation * rotation);
         }
     }
 
@@ -108,7 +79,7 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < bulletsPerGroup; i++)
         {
             Quaternion rotation = Quaternion.Euler(0, angleStep * i, 0);
-            Instantiate(bulletPrefab, transform.position, transform.rotation * rotation);
+            Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation * rotation);
         }
     }
     IEnumerator SpawnSuccession()
@@ -117,7 +88,7 @@ public class BulletSpawner : MonoBehaviour
         {
             for (int shot = 0; shot < bulletsPerShot; shot++)
             {
-                Instantiate(bulletPrefab, transform.position, transform.rotation);
+                Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation);
                 yield return new WaitForSeconds(successionInterval);
             }
             // Wait for the groupInterval before starting the next group of successions
@@ -136,7 +107,7 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < bulletsPerGroup; i++)
         {
             Quaternion rotation = Quaternion.Euler(0, Mathf.Sin(waveAngle) * spreadAngle, 0);
-            Instantiate(bulletPrefab, transform.position, transform.rotation * rotation);
+            Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation * rotation);
             waveAngle += Mathf.PI / bulletsPerGroup;
             yield return new WaitForSeconds(successionInterval);
         }
@@ -148,7 +119,7 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < bulletsPerGroup * bulletsPerShot; i++) // Increase count for longer spirals
         {
             Quaternion rotation = Quaternion.Euler(0, spiralAngle, 0);
-            Instantiate(bulletPrefab, transform.position, transform.rotation * rotation);
+            Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation * rotation);
             spiralAngle += 20; // Adjust for tighter or looser spirals
             yield return new WaitForSeconds(successionInterval);
         }
@@ -162,7 +133,7 @@ public class BulletSpawner : MonoBehaviour
             {
                 // Calculate spread angle for each bullet in the burst
                 Quaternion rotation = Quaternion.Euler(0, -spreadAngle / 2 + (spreadAngle / (bulletsPerGroup - 1)) * j, 0);
-                Instantiate(bulletPrefab, transform.position, transform.rotation * rotation);
+                Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation * rotation);
             }
             yield return new WaitForSeconds(successionInterval); // Pause between each burst
         }

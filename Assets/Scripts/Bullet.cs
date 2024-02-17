@@ -20,7 +20,12 @@ public class Bullet : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // Improve collision detection for fast-moving objects
         // Prevent bullet self-collision, assuming bullets are on a specific layer
         Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
+
+        Invoke("DeleteMe", 2);
     }
+
+    void DeleteMe()
+    { Destroy(gameObject); }
 
     public void Initialize(Vector3 direction)
     {

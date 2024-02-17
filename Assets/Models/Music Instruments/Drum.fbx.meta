@@ -3,7 +3,22 @@ guid: 2983bf8a1a3b27d4da2899cd1275238d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drum Outside
+    second: {fileID: 2100000, guid: c87f8bafe920f724c9551a6114bfced5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drum Skin
+    second: {fileID: 2100000, guid: 543b0a1376039aa469f92f66b19a7cab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drum Tip
+    second: {fileID: 2100000, guid: 88acc3dffd562864da22823661ed92a1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
