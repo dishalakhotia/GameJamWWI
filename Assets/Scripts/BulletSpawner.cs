@@ -19,6 +19,7 @@ public class BulletSpawner : MonoBehaviour
     public float successionInterval = 0.2f;
     public Transform target;
     public float bulletSpeed = 1f;
+    public float bullettimer = 3;
     void Start()
     {
         StartCoroutine(SpawnBulletss());
@@ -60,7 +61,8 @@ public class BulletSpawner : MonoBehaviour
 
     void SpawnStraight()
     {
-        Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.forward * 0.5f, transform.rotation);
+        Destroy(bullet, bullettimer);
     }
 
 

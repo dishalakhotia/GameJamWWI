@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         // Prevent bullet self-collision, assuming bullets are on a specific layer
         Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
 
-        Invoke("DeleteMe", 2);
+       
     }
 
     void DeleteMe()
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
     public void Initialize(Vector3 direction)
     {
         rb.velocity = direction * speed;
-        Invoke("ReturnToPool", bulletLife); // Return or destroy bullet after its lifetime
+        
     }
 
    /* private void Start()
@@ -44,22 +44,17 @@ public class Bullet : MonoBehaviour
         {
             // Apply damage to the player
             other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
-            ReturnToPool(); // Return bullet to pool or destroy
+            
         }
         else if (other.CompareTag("Enemy"))
         {
             // Apply damage to the enemy
             other.GetComponent<EnemyHealth>()?.TakeDamage(damage);
             Debug.Log("enemyHit");
-            ReturnToPool(); // Return bullet to pool or destroy
+           
         }
     }
 
-    void ReturnToPool()
-    {
-        ObjectPoolManager.Instance.ReturnBullet(gameObject, FlyingBookController.Instance.bulletPrefab);
-        Destroy(gameObject);
-    }
 
 
     void Update()
